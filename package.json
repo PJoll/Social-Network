@@ -1,0 +1,27 @@
+{
+    "name": "social-network",
+    "version": "1.0.0",
+    "description": "A social Network Api",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PJoll/Social-Network"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {},
+    "homepage": "https://github.com/PJoll/Social-Network",
+    "dependencies": {
+        "express":  "^4.18.1",
+        "moment": "^2.29.4",
+        "mongoose": "^6.4.4"
+    }
+}
+
+
+
