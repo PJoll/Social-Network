@@ -7,14 +7,19 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
     getSingleThought(req, res) {
+        console.log("req", req.params)
         Thought.findOne({ _id: req.params.thoughtId })
             .select('__v')
-            .then((thought) =>
+            .then((thought) =>{
+            console.log("thought", thought);
                 !thought
                     ? res.status(404).json({ message: "There is no Thought with that Id" })
                     : res.json(thought)
-            )
-            .catch((err) => res.status(500).json(err));
+    })
+            .catch((err) => {res.status(500).json(err);
+            
+            console.log("err", err)
+    });
     },
     createThought(req, res) {
         Thought.create(req.body)
@@ -76,6 +81,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err))
     },
     deleteReaction(req, res) {
+   
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $pull: { reactions: { reactionId: req.params.reactionId } } },

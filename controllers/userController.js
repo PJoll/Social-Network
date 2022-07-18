@@ -1,21 +1,18 @@
-const {ObjectId} = require('mongoose').Types;
+
 const {User,Thought} = require('../models');
 
-module.exports = {
+const userController = {
     getUser(req,res) {
-        User.find({})
+        User.find()
         .then((user) => res.json(user))
         .catch((err) => res.json(err))
     },
     getSingleUser(req,res) {
-        User.findOne({_id:req.params.id})
-        .select('-__v')
+        User.findOne({_id: req.params.userId })
         .then((user) =>
         !user
         ? res.status(404).json({message: 'No user with that Id'})
-        :res.json({
-            user
-        }))
+        :res.json( user))
         .catch((err) => res.status(500).json(err))
     },
 
@@ -77,3 +74,4 @@ module.exports = {
 
 };
 
+module.exports = userController
