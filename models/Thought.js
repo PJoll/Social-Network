@@ -6,8 +6,8 @@ const reactionSchema = new Schema (
     {
         // use assignment from miniproject
         reactionId: {
-            type: Schema.Types.ObjectId(),
-            default: () => new Types.ObjectId(),
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId,
         },
         reactionBody: {
             type: String,
